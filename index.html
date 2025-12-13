@@ -7,16 +7,16 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
-		<div class="layout-container">
-			<header>
-				<div class="top-bar">
-					<a href="#" class="info-button">Information for participants</a>
-				</div>
-				<div class="burger-menu">
-					<img src="img/burger.svg" alt="Menu" />
-				</div>
-			</header>
-			<section class="start-screen">
+		<div class="sections-container">
+			<section class="start-screen section">
+				<header>
+					<div class="top-bar">
+						<a href="#" class="info-button">Information for participants</a>
+					</div>
+					<div class="burger-menu">
+						<img src="img/burger.svg" alt="Menu" />
+					</div>
+				</header>
 				<div class="background-overlay"></div>
 
 				<main class="main-content">
@@ -33,6 +33,29 @@
 					</div>
 				</main>
 			</section>
+			<section class="slider-section section">
+				<div class="slider-wrapper">
+					<div class="slider-view">
+						<div class="slide-track">
+							<div class="slide">
+								<img src="img/slider_image_1.png" alt="Image 1" />
+							</div>
+							<div class="slide">
+								<img src="img/slider_image_2.png" alt="Image 2" />
+							</div>
+							<div class="slide">
+								<img src="img/slider_image_3.png" alt="Image 3" />
+							</div>
+							<div class="slide">
+								<img src="img/slider_image_4.png" alt="Image 4" />
+							</div>
+						</div>
+					</div>
+					<button class="slider-prev">&#10094;</button>
+					<button class="slider-next">&#10095;</button>
+				</div>
+			</section>
 		</div>
+		<script src="js/script.js"></script>
 	</body>
 </html>
