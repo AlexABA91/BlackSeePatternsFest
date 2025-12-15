@@ -146,13 +146,21 @@ header {
 }
 
 .slider-wrapper {
+	width: 100vw;
+	height: 100vh;
 	position: relative;
-	max-width: 800px;
 	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .slider-view {
-	overflow: hidden;
+	width: 70vw;
+	height: 70vh;
+	border-radius: 110.841px;
+	background: url(../wwwroot/background.webp) lightgray 50% 20% / cover
+		no-repeat;
 }
 
 .slide-track {
