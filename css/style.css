@@ -139,7 +139,7 @@ header {
 }
 
 .slider-section {
-	padding: 50px 0;
+	padding: 0 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -156,7 +156,7 @@ header {
 }
 
 .slider-view {
-	width: 70vw;
+	width: 50vw;
 	height: 70vh;
 	border-radius: 110.841px;
 	background: url(../wwwroot/background.webp) lightgray 50% 20% / cover
@@ -212,4 +212,10 @@ header {
 	font-size: clamp(40px, 3.23vw, 70px);
 	letter-spacing: 0.05em;
 	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.slider-view {
+		width: 90vw;
+	}
 }
