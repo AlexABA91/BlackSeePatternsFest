@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	const prevBtn = document.getElementById('prevBtn')
 	const nextBtn = document.getElementById('nextBtn')
 
-	// Элементы для полноэкранного просмотра
 	const fullscreenOverlay = document.getElementById('fullscreen-overlay')
 	const fullscreenImage = document.getElementById('fullscreen-image')
 
@@ -41,6 +40,22 @@ document.addEventListener('DOMContentLoaded', function () {
 		if (sliderImage) {
 			const imageUrl = `url('${images[currentIndex]}')`
 			sliderImage.style.backgroundImage = imageUrl
+		}
+
+		if (prevBtn) {
+			const prevIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
+			const prevImageUrl = `url('${images[prevIndex]}')`
+			prevBtn.style.backgroundImage = prevImageUrl
+			prevBtn.style.backgroundSize = 'cover'
+			prevBtn.style.backgroundPosition = 'center'
+		}
+
+		if (nextBtn) {
+			const nextIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
+			const nextImageUrl = `url('${images[nextIndex]}')`
+			nextBtn.style.backgroundImage = nextImageUrl
+			nextBtn.style.backgroundSize = 'cover'
+			nextBtn.style.backgroundPosition = 'center'
 		}
 	}
 
@@ -58,47 +73,53 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 	}
 
-	// --- ЛОГИКА СВАЙПОВ ---
-	sliderSection.addEventListener(
-		'touchstart',
-		e => {
-			touchStartX = e.touches[0].clientX
-			touchStartY = e.touches[0].clientY
-		},
-		{ passive: true }
-	)
+	// --- ЛОГИКА СВАЙПОВ И КЛИКОВ НА ИЗОБРАЖЕНИИ ---
+	if (sliderImage) {
+		sliderImage.addEventListener(
+			'touchstart',
+			e => {
+				// Проверяем, что событие не на кнопках
+				if (e.target === prevBtn || e.target === nextBtn) return
+				touchStartX = e.touches[0].clientX
+				touchStartY = e.touches[0].clientY
+			},
+			{ passive: true }
+		)
 
-	sliderSection.addEventListener(
-		'touchmove',
-		e => {
-			if (!touchStartX || !touchStartY) return
+		sliderImage.addEventListener(
+			'touchmove',
+			e => {
+				if (!touchStartX || !touchStartY) return
 
-			const deltaX = e.touches[0].clientX - touchStartX
-			const deltaY = e.touches[0].clientY - touchStartY
+				const deltaX = e.touches[0].clientX - touchStartX
+				const deltaY = e.touches[0].clientY - touchStartY
 
-			if (Math.abs(deltaX) > Math.abs(deltaY)) {
-				e.stopPropagation()
-				const swipeThreshold = 50
+				if (Math.abs(deltaX) > Math.abs(deltaY)) {
+					// Горизонтальный свайп - предотвращаем скролл страницы
+					e.preventDefault()
+					e.stopPropagation()
 
-				if (deltaX < -swipeThreshold) {
-					currentIndex = currentIndex < images.length - 1 ? currentIndex + 1 : 0
-					updateSlider()
-					touchStartX = 0
-					touchStartY = 0
-				} else if (deltaX > swipeThreshold) {
-					currentIndex = currentIndex > 0 ? currentIndex - 1 : images.length - 1
-					updateSlider()
-					touchStartX = 0
-					touchStartY = 0
+					const swipeThreshold = 50
+
+					if (deltaX < -swipeThreshold) {
+						currentIndex =
+							currentIndex < images.length - 1 ? currentIndex + 1 : 0
+						updateSlider()
+						touchStartX = 0
+						touchStartY = 0
+					} else if (deltaX > swipeThreshold) {
+						currentIndex =
+							currentIndex > 0 ? currentIndex - 1 : images.length - 1
+						updateSlider()
+						touchStartX = 0
+						touchStartY = 0
+					}
 				}
-			}
-		},
-		{ passive: false }
-	)
+			},
+			{ passive: false }
+		)
 
-	// --- ЛОГИКА ПОЛНОЭКРАННОГО ПРОСМОТРА ---
-	if (sliderSection) {
-		sliderSection.addEventListener('dblclick', () => {
+		sliderImage.addEventListener('dblclick', () => {
 			if (fullscreenOverlay && fullscreenImage) {
 				fullscreenImage.src = images[currentIndex]
 				fullscreenOverlay.classList.add('active')
@@ -111,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			fullscreenOverlay.classList.remove('active')
 		})
 	}
+
 	// Initial load
 	updateSlider()
 })

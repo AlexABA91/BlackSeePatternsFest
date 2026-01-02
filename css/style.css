@@ -255,6 +255,7 @@ header {
 }
 #sliderImage {
 	position: relative;
+	z-index: 10; /* Поднимаем над остальными элементами */
 	display: block;
 	width: 60vw;
 	height: 65vh;
@@ -275,14 +276,16 @@ header {
 		border-radius: 0;
 	}
 	.slider-button #prevBtn {
-		background-image: url('../img/prev_arrow.svg');
+		background-image: url('../img/prev_arrow.svg') !important;
 		rotate: -17deg;
-		justify-self: end;
+		justify-self: start;
+		margin-left: 25px;
 	}
 	.slider-button #nextBtn {
-		background-image: url('../img/next_arrow.svg');
+		background-image: url('../img/next_arrow.svg') !important;
 		rotate: 17deg;
-		justify-self: start;
+		justify-self: end;
+		margin-right: 25px;
 	}
 	.slider-wrapper {
 		width: 90vw;
