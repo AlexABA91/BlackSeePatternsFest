@@ -7,16 +7,22 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
+		<header>
+			<div class="top-bar">
+				<a href="#" class="info-button">Information for participants</a>
+			</div>
+			<div class="burger-menu">
+				<div class="burger-line burger-line-one"></div>
+				<div class="burger-line burger-line-two"></div>
+				<div class="burger-line burger-line-three"></div>
+			</div>
+		</header>
 		<div class="sections-container">
 			<section class="start-screen section">
-				<header>
-					<div class="top-bar">
-						<a href="#" class="info-button">Information for participants</a>
-					</div>
-					<div class="burger-menu">
-						<img src="img/burger.svg" alt="Menu" />
-					</div>
-				</header>
+				<!--TODO: add lazy loading for video, add background image before video, compress video 	     file-->
+				<video autoplay muted loop class="background-video">
+					<source src="wwwroot/FestStartVideo.mp4" type="video/mp4" />
+				</video>
 				<div class="background-overlay"></div>
 
 				<main class="main-content">

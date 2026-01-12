@@ -34,12 +34,21 @@ html {
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	background-image: url('../img/background-6b29d3.png');
-	background-size: cover;
-	background-position: center;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.background-video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform: translate(-50%, -50%);
+	z-index: -1;
 }
 
 .background-overlay {
@@ -73,9 +82,8 @@ html {
 }
 
 header {
-	position: absolute;
-	top: 2.08vw;
-	right: 4.16vw;
+	position: fixed;
+	width: 100vw;
 	z-index: 2;
 	display: flex;
 	justify-content: flex-end;
@@ -84,11 +92,40 @@ header {
 }
 
 .burger-menu {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-right: clamp(30px, 3.85vw, 60px);
+	margin-top: 2rem;
 	cursor: pointer;
-	width: 3.85vw;
-	height: 1.4vw;
+	width: clamp(30px, 3.85vw, 60px);
+	height: clamp(20px, 2vh, 60px);
+	z-index: 4;
 }
+.burger-line {
+	height: 5px;
+	border-radius: 2px;
+	transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+		width 0.3s ease-in-out;
+}
+.burger-line-one {
+	position: relative;
+	align-self: flex-start;
+	background-color: #4533e4;
 
+	width: 90%;
+}
+.burger-line-two {
+	background-color: #7125a0;
+	width: 70%;
+	align-self: center;
+}
+.burger-line-three {
+	background-color: #c714de;
+	width: 90%;
+	align-self: flex-end;
+}
 .main-content {
 	position: relative;
 	z-index: 2;
@@ -185,8 +222,7 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: url(../wwwroot/background.webp) lightgray 50% 50% / cover
-		no-repeat;
+	background: url(../img/background.webp) lightgray 50% 50% / cover no-repeat;
 	background-position: top center;
 
 	border-radius: 90px;
@@ -319,4 +355,50 @@ header {
 	max-width: 90%;
 	max-height: 90%;
 	object-fit: contain;
+}
+
+/* Burger menu line animations */
+@keyframes move-left-right {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-15%);
+	}
+}
+
+@keyframes move-right-left-right {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(42%);
+	}
+	75% {
+		transform: translateX(-42%);
+	}
+}
+
+@keyframes move-right-left {
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(15%);
+	}
+}
+
+.burger-line-one {
+	animation: move-left-right 2s ease-in-out infinite;
+}
+
+.burger-line-two {
+	animation: move-right-left-right 2s ease-in-out 0.2s infinite;
+}
+
+.burger-line-three {
+	animation: move-right-left 2s ease-in-out infinite;
 }

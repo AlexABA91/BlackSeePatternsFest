@@ -1,1 +1,3 @@
 - Do not change user-made changes without asking.
+- Always explain what changes you are making and why.
+  -Do not modify the code without the user's permission.
