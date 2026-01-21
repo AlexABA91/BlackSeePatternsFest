@@ -1,1 +1,7 @@
-{"mcpServers":{}}
+{
+	"mcpServers": {
+		"ZapCode Figma Bridge": {
+			"url": "http://localhost:3001/zapcode-mcp-sse"
+		}
+	}
+}

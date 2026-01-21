@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
 	// Плавный скролл по секциям
 	const sectionsContainer = document.querySelector('.sections-container')
+	const navContainer = document.querySelector('.navigation-bar')
+	const burgerButton = document.querySelector('.burger-menu')
+	const closeButton = document.querySelector('.close-btn')
 	if (sectionsContainer) {
 		const sections = document.querySelectorAll('.section')
 		let currentIndex = 0
@@ -30,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Обработчик события прокрутки колесом мыши
 		const handleWheel = event => {
-			// event.preventDefault() убрано отсюда, чтобы не блокировать стандартное поведение, если условия не выполнены
 			if (isScrolling) {
 				event.preventDefault()
 				return
@@ -86,6 +88,28 @@ document.addEventListener('DOMContentLoaded', function () {
 				touchStartY = touchCurrentY
 			}
 		}
+		burgerButton.addEventListener('click', () => {
+			navContainer.classList.add('open')
+			burgerButton.style.display = 'none'
+		})
+
+		closeButton.addEventListener('click', () => {
+			navContainer.classList.remove('open')
+			burgerButton.style.display = 'flex'
+		})
+
+		// Обработчики для якорных ссылок в навигационной панели
+		const anchorLinks = document.querySelectorAll('.nav-main a[href^="#"]')
+		anchorLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				// Проверяем, является ли устройство мобильным
+				if (window.innerWidth <= 768) {
+					// Закрываем навигационную панель
+					navContainer.classList.remove('open')
+					burgerButton.style.display = 'flex'
+				}
+			})
+		})
 
 		// Привязка событий
 		sectionsContainer.addEventListener('wheel', handleWheel, { passive: false })
