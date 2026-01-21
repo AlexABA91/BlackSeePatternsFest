@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				touchStartX = e.touches[0].clientX
 				touchStartY = e.touches[0].clientY
 			},
-			{ passive: true }
+			{ passive: true },
 		)
 
 		sliderImage.addEventListener(
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 				}
 			},
-			{ passive: false }
+			{ passive: false },
 		)
 
 		sliderImage.addEventListener('dblclick', () => {
