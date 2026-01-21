@@ -273,15 +273,16 @@ header {
 	column-gap: 50vw;
 	grid-template-rows: repeat(1, minmax(0, 1fr));
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	z-index: 2;
+
 	#prevBtn,
 	#nextBtn {
 		position: relative;
+		background-repeat: no-repeat;
 		width: clamp(20vw, 100px, 400px);
 		height: clamp(20vw, 100px, 400px);
 		border-radius: 53.007px;
-		border: 15.002px solid #293077;
 		cursor: pointer;
+		z-index: 7;
 	}
 	#prevBtn {
 		right: 25px;
@@ -297,6 +298,7 @@ header {
 		justify-self: end;
 	}
 }
+
 .slider-section {
 	padding: 0 0;
 	display: flex;
@@ -312,17 +314,20 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: url(../img/background.webp) lightgray 50% 50% / cover no-repeat;
 	background-position: top center;
-
 	border-radius: 90px;
 }
 
 .slider-view {
 	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 	display: grid;
 	justify-content: center;
 	align-content: center;
+	border-radius: 100px;
+	border: 20px solid rgba(176, 56, 223, 0.2);
 }
 
 .slide-track {
@@ -334,36 +339,6 @@ header {
 	transition: transform 0.5s ease;
 }
 
-.slide {
-	min-width: 100%;
-	box-sizing: border-box;
-}
-
-.slide img {
-	width: 100%;
-	display: block;
-}
-
-.slider-prev,
-.slider-next {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background-color: rgba(0, 0, 0, 0.5);
-	color: white;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	z-index: 1;
-}
-
-.slider-prev {
-	left: 10px;
-}
-
-.slider-next {
-	right: 10px;
-}
 .tild-left,
 .tild-right {
 	width: clamp(50px, 6.79vw, 130px);
@@ -375,10 +350,10 @@ header {
 
 #sliderImage {
 	position: relative;
-	z-index: 10; /* Поднимаем над остальными элементами */
+	z-index: 3; /* Поднимаем над остальными элементами */
 	display: block;
-	width: 60vw;
-	height: 65vh;
+	width: 100vw;
+	height: 100vh;
 	border-radius: 100px;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -412,7 +387,7 @@ header {
 	}
 	#sliderImage {
 		width: 85vw;
-		height: 50vh;
+		height: 90vh;
 	}
 }
 
@@ -577,44 +552,44 @@ header {
 	width: 20px;
 	height: 20px;
 }
-
-/* Адаптивные стили для nav-footer */
-@media (max-width: 768px) {
-	.navigation-bar {
-		width: 100vw;
-		right: 0;
-	}
-	.navigation-bar.open {
-		opacity: 1;
-	}
-	.nav-header .nav-logo {
-		width: clamp(150px, 20vw, 120px);
-		height: clamp(150px, 20vw, 120px);
-	}
-	.nav-footer {
-		gap: 15px;
-		padding-bottom: 1.5rem;
-	}
-
-	.mail a,
-	.phone a {
-		font-size: clamp(14px, 1.1vw, 18px);
-	}
-
-	.social-media {
-		gap: 15px;
-	}
-
-	.social-media a {
-		width: 35px;
-		height: 35px;
-	}
-
-	.social-media img {
-		width: 18px;
-		height: 18px;
-	}
+.navigation-bar {
+	width: 100vw;
+	right: 0;
 }
+.navigation-bar.open {
+	opacity: 1;
+}
+.nav-header .nav-logo {
+	width: clamp(150px, 20vw, 120px);
+	height: clamp(150px, 20vw, 120px);
+}
+.nav-footer {
+	gap: 15px;
+	padding-bottom: 1.5rem;
+}
+
+.mail a,
+.phone a {
+	font-size: clamp(14px, 1.1vw, 18px);
+}
+
+.social-media {
+	gap: 15px;
+}
+
+.social-media a {
+	width: 35px;
+	height: 35px;
+}
+
+.social-media img {
+	width: 18px;
+	height: 18px;
+}
+.slider-view {
+	border: 10px solid rgba(176, 56, 223, 0);
+}
+/* Адаптивные стили для nav-footer */
 
 @media (max-width: 480px) {
 	.navigation-bar .open {
