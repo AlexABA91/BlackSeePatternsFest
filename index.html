@@ -1,103 +1,148 @@
+<script src="js/script.js"></script>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Black See Patterns Fest</title>
-		<link rel="stylesheet" href="css/style.css" />
-	</head>
-	<body>
-		<video autoplay muted loop class="background-video">
-					<source src="wwwroot/background .mp4" type="video/mp4" />
-				</video>
-		<nav class="navigation-bar">
-			<div class="nav-header">
-				<div class="close-btn">
-					<div class="close-line close-line-one"></div>
-					<div class="close-line close-line-two"></div>
-				</div>
-				<a href="#" class="nav-logo"
-					><img src="img/background.webp" alt="Logo"
-				/></a>
-			</div>
-			<div class="nav-main">
-				<a href="#home"><span>HOME</span></a>
-				<a href="#gallery"><span>GALLERY</span></a>
-				<a href="#category"><span>CATEGORY</span></a>
-				<a href="#nomination"><span>NOMINATION</span></a>
-			</div>
-			<div class="nav-footer">
-				<div class='mail'>
-					<img src="img/MailSVG.svg" alt="Mail"><a href='mailto:info@blackseepatterns.com'>info@blackseepatterns.com</a>
-				</div>
-				<div class='phone'>	
-					<img src="img/Vector.svg" alt="phone-icon"><a href='tel:	+380631234567'>+38 (063) 123 45 67</a>
-				</div>
-				<div class="social-media">
-					<a href='#'/><img src="img/Facebook.svg" alt="Facebook"></img></a>
-					<a href='#'/><img src="img/Instagram.svg" alt="Instagram"></img></a>
-					<a href='#'/><img src="img/Telegram App.svg" alt="Telegram"></img></a>
-				</div>
-			</div>
-		</nav>
-		<header>
-			<div class="top-bar">
-				<a href="#" class="info-button">Information for participants</a>
-			</div>
-			<div class="burger-menu">
-				<div class="burger-line burger-line-one"></div>
-				<div class="burger-line burger-line-two"></div>
-				<div class="burger-line burger-line-three"></div>
-			</div>
-		</header>
-		<div class="sections-container">
-			<section id="home" class="start-screen section">
-				<!--TODO: add lazy loading for video, add background image before video, compress video 	     file-->
-				<video autoplay muted loop class="start-screen-background-video">
-					<source src="wwwroot/FestStartVideo.mp4" type="video/mp4" />
-				</video>
-				<div class="background-overlay"></div>
 
-				<main class="main-content">
-					<div class="event-text">
-						<h2 class="event-name">“Black See Patterns”</h2>
-						<p class="event-subtitle">All-Ukrainian Festival</p>
-						<div class="event-title-container">
-							<img src="img/tild.png" alt="Tild" class="tild-left" />
-							<h1 class="event-title">ART-DANCE FEST</h1>
-							<img src="img/tild.png" alt="Tild" class="tild-right" />
-						</div>
-						<p class="event-date">From 20 to 25 December 2026</p>
-						<p class="event-location">Odesa</p>
-					</div>
-				</main>
-			</section>
-			<section id="gallery" class="slider-section section">
-				<div class="slider-wrapper">
-					<div class="slide-track">
-						<div class="slider-button">
-							<button class="slide-button" id="prevBtn"></button>
-							<button class="slide-button" id="nextBtn"></button>
-						</div>
-					</div>
-					<div class="slider-view">
-						<div class="slides-container" id="sliderImage"></div>
-					</div>
-				</div>
-			</section>
-			<section id="category" class="section">
-				<!-- TODO: Add content for Category section -->
-			</section>
-			<section id="nomination" class="section">
-				<!-- TODO: Add content for Nomination section -->
-			</section>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Black See Patterns Fest</title>
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<video autoplay muted loop class="background-video">
+		<source src="wwwroot/background .mp4" type="video/mp4" />
+	</video>
+	<nav class="navigation-bar">
+		<div class="nav-header">
+			<div class="close-btn">
+				<div class="close-line close-line-one"></div>
+				<div class="close-line close-line-two"></div>
+			</div>
+			<a href="#" class="nav-logo"><img src="img/background.webp" alt="Logo" /></a>
 		</div>
-
-		<div id="fullscreen-overlay" class="fullscreen-overlay">
-			<img id="fullscreen-image" src="" alt="Fullscreen Image" />
+		<div class="nav-main">
+			<a class='anchor' data-index="0"><span>HOME</span></a>
+			<a class='anchor' data-index="1"><span>GALLERY</span></a>
+			<a class='anchor' data-index="2"><span>CATEGORY</span></a>
+			<a class='anchor' data-index="3"><span>NOMINATION</span></a>
 		</div>
+		<div class="nav-footer">
+			<div class='mail'>
+				<img src="img/MailSVG.svg" alt="Mail"><a href='mailto:info@blackseepatterns.com'>info@blackseepatterns.com</a>
+			</div>
+			<div class='phone'>
+				<img src="img/Vector.svg" alt="phone-icon"><a href='tel:	+380631234567'>+38 (063) 123 45 67</a>
+			</div>
+			<div class="social-media">
+				<a href='#' /><img src="img/Facebook.svg" alt="Facebook"></img></a>
+				<a href='#' /><img src="img/Instagram.svg" alt="Instagram"></img></a>
+				<a href='#' /><img src="img/Telegram App.svg" alt="Telegram"></img></a>
+			</div>
+		</div>
+	</nav>
+	<header>
+		<div class="top-bar">
+			<a href="#" class="info-button">Information for participants</a>
+		</div>
+		<div class="burger-menu">
+			<div class="burger-line burger-line-one"></div>
+			<div class="burger-line burger-line-two"></div>
+			<div class="burger-line burger-line-three"></div>
+		</div>
+	</header>
+	<div class="sections-container">
+		<section id="home" class="start-screen section">
+			<!--TODO: add lazy loading for video, add background image before video, compress video 	     file-->
+			<video autoplay muted loop class="start-screen-background-video">
+				<source src="wwwroot/FestStartVideo.mp4" type="video/mp4" />
+			</video>
+			<div class="background-overlay"></div>
 
-		<script src="js/script.js"></script>
-		<script src="js/slider.js"></script>
-	</body>
+			<main class="main-content">
+				<div class="event-text">
+					<h2 class="event-name">“Black See Patterns”</h2>
+					<p class="event-subtitle">All-Ukrainian Festival</p>
+					<div class="event-title-container">
+						<img src="img/tild.png" alt="Tild" class="tild-left" />
+						<h1 class="event-title">ART-DANCE FEST</h1>
+						<img src="img/tild.png" alt="Tild" class="tild-right" />
+					</div>
+					<p class="event-date">From 20 to 25 December 2026</p>
+					<p class="event-location">Odesa</p>
+				</div>
+			</main>
+		</section>
+		<section id="gallery" class="slider-section section">
+			<div class="slider-wrapper">
+				<div class="slide-track">
+					<div class="slider-button">
+						<button class="slide-button" id="prevBtn"></button>
+						<button class="slide-button" id="nextBtn"></button>
+					</div>
+				</div>
+				<div class="slider-view">
+					<div class="slides-container" id="sliderImage"></div>
+				</div>
+			</div>
+		</section>
+		<section id="category" class="category-section section">
+			<h2>Categories</h2>
+			<div class='category-direction-container'>
+				<div class='category-direction'>
+					<p class='category-direction-title'>Professional</p>
+					<p class='category-direction-description'>Professional choreography school, college, academy</p>
+				</div>
+				<div class='category-direction'>
+					<p class='category-direction-title'>Amateur</p>
+					<p class='category-direction-description'>Private choreography amateur school, studio, denser amateur</p>
+				</div>
+			</div>
+			<ul class='category-list-items'>
+				<li>
+					Classic
+				</li>
+				<li>
+					Contemporary
+				</li>
+				<li>
+					Folk
+				</li>
+				<li>
+					Show Dance
+				</li>
+			</ul>
+		</section>
+		<section id="nomination" class="nomination-section section">
+			<h2>Nomination</h2>
+			<div class='nomination-container'>
+				<div class='nomination-items'>
+					<div class='nomination-item'>
+						<p class='nomination-item-title'>Nomination I “Solo and Duet”</p>
+					</div>
+					<div class='nomination-item'>
+						<p class='nomination-item-title'>Nomination II “Ensemble”</p>
+						<p class='nomination-item-description'>(Small Group 3 - 7 people and Large Group 8 - 30 people)</p>
+					</div>
+				</div>
+				<div class='nomination-group-container'>
+					<p class='nomination-group-item'>Group 1 - younger group (9–10 years old)</p>
+					<p class='nomination-group-item'>Group 2 - middle group (11– 13 years old)</p>
+					<p class='nomination-group-item'>Group 3 - older group (14– 16 years old)</p>
+					<p class='nomination-group-item'>Group 4 - young people (17 – 23 years old) </p>
+					<p class='nomination-group-item'>Group 5 - Mixed age (For Ensemble)</p>
+				</div>
+			</div>
+
+	</div>
+	</section>
+	</div>
+
+	<div id="fullscreen-overlay" class="fullscreen-overlay">
+		<img id="fullscreen-image" src="" alt="Fullscreen Image" />
+	</div>
+
+	<script src="js/slider.js"></script>
+</body>
+
 </html>
