@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Функция для прокрутки к определенной секции
 		const scrollToSection = index => {
+			console.log('Scrolling to section index:', index)
 			if (index >= 0 && index < sections.length) {
 				sectionsContainer.style.transform = `translateY(-${index * 100}vh)`
 				currentIndex = index
@@ -99,15 +100,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 
 		// Обработчики для якорных ссылок в навигационной панели
-		const anchorLinks = document.querySelectorAll('.nav-main a[href^="#"]')
+		const anchorLinks = document.querySelectorAll('.anchor')
 		anchorLinks.forEach(link => {
 			link.addEventListener('click', () => {
+				currentIndex = parseInt(link.dataset.index)
+				console.log('Anchor link clicked, index set to:', currentIndex)
 				// Проверяем, является ли устройство мобильным
 				if (window.innerWidth <= 768) {
 					// Закрываем навигационную панель
 					navContainer.classList.remove('open')
 					burgerButton.style.display = 'flex'
 				}
+				scrollToSection(currentIndex)
 			})
 		})
 
