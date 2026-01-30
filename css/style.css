@@ -366,8 +366,60 @@ header {
 	text-align: center;
 }
 .nomination-group-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2vh;
 }
 .nomination-group-item {
+	font-family: var(--primary-font-family);
+	font-size: clamp(1.5rem, 2vw, 3rem);
+}
+
+.organizers-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 4vh 0 5vh;
+	color: #ffffff;
+}
+
+.judges-title,
+.organizer-title {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+	text-align: center;
+}
+
+.organizers-photos,
+.judges-photos {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: clamp(120px, 12vw, 300px);
+	gap: clamp(16px, 4vw, 72px);
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2vh;
+}
+
+.organizer-photo,
+.judge-photo {
+	width: clamp(120px, 12vw, 300px);
+	height: clamp(120px, 12vw, 300px);
+	border-radius: clamp(24px, 2.5vw, 56px);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.jury-disclaimer {
+	font-family: var(--h2-font-family);
+	font-size: clamp(1rem, 2.5vw, 2rem);
+	text-align: center;
+	margin: 2vh 0 0;
 }
 .nav-footer {
 	flex: 1;
@@ -661,6 +713,13 @@ header {
 		gap: 3vh;
 		margin-bottom: 10vh;
 	}
+	.organizers-photos,
+	.judges-photos {
+		grid-auto-flow: сolumn;
+
+		align-items: center;
+		width: 90vw;
+	}
 	.nomination-items {
 		flex-direction: column;
 		align-items: center;
@@ -708,6 +767,12 @@ header {
 		width: 100vw;
 		height: 100vh;
 		opacity: 3;
+	}
+
+	.organizers-photos,
+	.judges-photos {
+		grid-template-columns: repeat(2, minmax(120px, 1fr));
+		gap: 12px;
 	}
 
 	.nav-footer {
