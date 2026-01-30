@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		})
 
 		// Обработчики для якорных ссылок в навигационной панели
-		const anchorLinks = document.querySelectorAll('.anchor')
+		const anchorLinks = document.querySelectorAll('.nav-anchor')
 		anchorLinks.forEach(link => {
 			link.addEventListener('click', () => {
 				currentIndex = parseInt(link.dataset.index)
