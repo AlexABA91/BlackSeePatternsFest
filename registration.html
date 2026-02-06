@@ -50,17 +50,19 @@
 						<input id="phone" type="tel" class="form-control" placeholder="+380630000000" />
 					</div>
 
-					<div class="form-group mb-3">
-						<label class="control-label mb-2 d-block">Team level:</label>
-						<div class="btn-group" role="group">
-							<input type="radio" class="btn-check" name="teamLevel" id="teamLevelAmateur" checked />
-							<label class="btn btn-secondary" for="teamLevelAmateur">Amateur</label>
-							<input type="radio" class="btn-check" name="teamLevel" id="teamLevelPro" />
-							<label class="btn btn-secondary" for="teamLevelPro">Professional</label>
+					<div class="form-group mb-3 d-flex flex-column justify-content-center">
+						<label class="control-label mb-2 d-block text-center">Team level:</label>
+						<div class="d-flex justify-content-center">
+							<div class="btn-group" role="group">
+								<input type="radio" class="btn-check" name="teamLevel" id="teamLevelAmateur" checked />
+								<label class="btn btn-secondary" for="teamLevelAmateur">Amateur</label>
+								<input type="radio" class="btn-check" name="teamLevel" id="teamLevelPro" />
+								<label class="btn btn-secondary" for="teamLevelPro">Professional</label>
+							</div>
 						</div>
 					</div>
 
-					<div class="form-group mb-3">
+					<div class="form-group mb-3 organization-field" id="organizationField">
 						<label for="organization" class="control-label mb-2">Organization:</label>
 						<input id="organization" type="text" class="form-control" placeholder="Organization name" />
 					</div>
@@ -182,6 +184,7 @@
 	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="js/registration.js"></script>
 </body>
 
 </html>

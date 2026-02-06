@@ -45,11 +45,37 @@ body {
 }
 
 .registration-page .btn-secondary {
+	background-color: #adb5bd;
+	border-color: #adb5bd;
+}
+
+.registration-page .btn-secondary:hover {
+	background-color: #9aa2a9;
+	border-color: #9aa2a9;
+}
+
+.registration-page .btn-check:checked + .btn-secondary {
 	background-color: #6c63ff;
 	border-color: #6c63ff;
 }
 
-.registration-page .btn-secondary:hover {
+.registration-page .btn-check:checked + .btn-secondary:hover {
 	background-color: #574bff;
 	border-color: #574bff;
+}
+
+.organization-field {
+	max-height: 200px;
+	opacity: 1;
+	transition:
+		opacity 0.4s ease,
+		max-height 0.4s ease,
+		margin-top 0.4s ease;
+	overflow: hidden;
+}
+
+.organization-field.is-hidden {
+	max-height: 0;
+	opacity: 0;
+	margin-top: 0;
 }
