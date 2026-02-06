@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Abyssinica+SIL&family=Great+Vibes&display=swap');
+:root {
+	--h2-font-family: 'Great Vibes', serif;
+	--secondary-font-family: 'Abyssinica SIL', serif;
+	--primary-font-family: 'ADLaM Display', sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	margin: 0;
+	position: relative;
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: var(--primary-font-family);
+	background: linear-gradient(
+		180deg,
+		rgba(66.42, 43.42, 155.7, 1) 0%,
+		rgba(91.04, 63.08, 170.41, 1) 33.654%,
+		rgba(103.72, 75.53, 182.67, 1) 73.077%,
+		rgba(129, 86, 206, 1) 100%
+	);
+	color: #1f1f1f;
+	padding-bottom: 40px;
+}
+
+.bgWhite {
+	position: relative;
+	background-color: rgba(225, 225, 225, 0.9);
+	border-radius: 18px;
+	padding: 24px 16px 32px;
+}
+
+.registration-page h1,
+.registration-page h2 {
+	font-size: clamp(1.5rem, 5vw, 4rem);
+	font-family: var(--h2-font-family);
+}
+
+.registration-page .btn-secondary {
+	background-color: #6c63ff;
+	border-color: #6c63ff;
+}
+
+.registration-page .btn-secondary:hover {
+	background-color: #574bff;
+	border-color: #574bff;
+}
