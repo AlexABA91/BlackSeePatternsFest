@@ -79,3 +79,52 @@ body {
 	opacity: 0;
 	margin-top: 0;
 }
+
+.participants-fields {
+	max-height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transform: translateY(-6px);
+	transition:
+		opacity 0.35s ease,
+		max-height 0.35s ease,
+		transform 0.35s ease,
+		margin-top 0.35s ease;
+	margin-top: 0;
+}
+
+.participants-fields.has-items {
+	max-height: 1000px;
+	opacity: 1;
+	transform: translateY(0);
+	margin-top: 0.75rem;
+}
+
+.participant-item {
+	opacity: 0;
+	transform: translateY(6px);
+	animation: participantFadeIn 0.3s ease forwards;
+}
+
+.participant-item:nth-child(2) {
+	animation-delay: 0.04s;
+}
+
+.participant-item:nth-child(3) {
+	animation-delay: 0.08s;
+}
+
+.participant-item:nth-child(4) {
+	animation-delay: 0.12s;
+}
+
+@keyframes participantFadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

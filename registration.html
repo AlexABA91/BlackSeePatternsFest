@@ -29,10 +29,10 @@
 						<label class="control-label mb-2">Team leader:</label>
 						<div class="row align-items-center">
 							<div class="col-12 col-md-4">
-								<input type="text" class="form-control mb-1" placeholder="Last name" />
+								<input id="teamLeaderLastName" type="text" class="form-control mb-1" placeholder="Last name" />
 							</div>
 							<div class="col-12 col-md-4">
-								<input type="text" class="form-control mb-1" placeholder="First name" />
+								<input id="teamLeaderFirstName" type="text" class="form-control mb-1" placeholder="First name" />
 							</div>
 							<div class="col-12 col-md-4">
 								<input type="text" class="form-control" placeholder="Patronymic" />
@@ -68,112 +68,123 @@
 					</div>
 
 					<h2 class="mb-3">Performance information</h2>
-					<div class="border-1 border rounded-3 border-secondary m-1 p-3">
-						<div class="form-group mb-2">
-							<label for="performanceName" class="control-label mb-2">Performance name:</label>
-							<input id="performanceName" type="text" class="form-control" placeholder="Performance name" />
-						</div>
+					<div id="performancesContainer">
+						<div class="border-1 border rounded-3 border-secondary m-1 p-3 performance-block">
+							<div class="text-end mb-2">
+								<button type="button" class="btn btn-outline-danger btn-sm js-remove-performance d-none">
+									<i class="bi bi-trash"></i> Remove performance
+								</button>
+							</div>
+							<div class="form-group mb-2">
+								<label class="control-label mb-2">Performance name:</label>
+								<input type="text" class="form-control js-performance-name" placeholder="Performance name" />
+							</div>
 
-						<div class="form-group mb-3">
-							<label class="control-label mb-2">Choreographer / Director:</label>
-							<div class="row align-items-center">
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control mb-1" placeholder="Last name" />
-								</div>
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control mb-1" placeholder="First name" />
-								</div>
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control" placeholder="Patronymic" />
+							<div class="form-group mb-3">
+								<label class="control-label mb-2">Choreographer / Director:</label>
+								<div class="row align-items-center">
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control mb-1 js-choreographer-last-name" placeholder="Last name" />
+									</div>
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control mb-1 js-choreographer-first-name" placeholder="First name" />
+									</div>
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control" placeholder="Patronymic" />
+									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="form-group mb-3">
-							<div class="d-flex justify-content-between row">
-								<label class="control-label mb-2 col-12 col-md-6">Concertmaster:</label>
-								<div class="form-check mb-2 col-12 col-md-6 d-flex justify-content-center">
-									<input class="form-check-input me-2" type="checkbox" id="concertmasterNone" />
-									<label class="form-check-label" for="concertmasterNone">No concertmaster</label>
+							<div class="form-group mb-3">
+								<div class="d-flex justify-content-between row">
+									<label class="control-label mb-2 col-12 col-md-6">Concertmaster:</label>
+									<div class="form-check mb-2 col-12 col-md-6 d-flex justify-content-center">
+										<input class="form-check-input me-2 js-concertmaster-none" type="checkbox" />
+										<label class="form-check-label">No concertmaster</label>
+									</div>
+								</div>
+								<div class="row align-items-center concertmaster-fields">
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control mb-1 js-concertmaster-last-name" placeholder="Last name" />
+									</div>
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control mb-1 js-concertmaster-first-name" placeholder="First name" />
+									</div>
+									<div class="col-12 col-md-4">
+										<input type="text" class="form-control" placeholder="Patronymic" />
+									</div>
 								</div>
 							</div>
-							<div class="row align-items-center">
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control mb-1" placeholder="Last name" />
-								</div>
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control mb-1" placeholder="First name" />
-								</div>
-								<div class="col-12 col-md-4">
-									<input type="text" class="form-control" placeholder="Patronymic" />
-								</div>
-							</div>
-						</div>
 
-						<div class="form-group mb-3 col-md-6">
-							<label for="participants" class="control-label mb-2">Participants number:</label>
-							<select id="participants" class="form-select text-center fw-bold mt-1">
-								<option value="">------</option>
-								<option value="1">Solo</option>
-								<option value="2">Duet</option>
-								<option value="3">Trio</option>
-								<option value="4">Group</option>
-							</select>
-						</div>
-
-						<div class="row row-cols-sm-2 mt-2">
-							<div>
-								<label for="genre" class="control-label">Genre:</label>
-								<select id="genre" class="form-select text-center fw-bold mt-1">
+							<div class="form-group mb-3 col-md-6">
+								<label class="control-label mb-2">Participants number:</label>
+								<select class="form-select text-center fw-bold mt-1 js-participants-select">
 									<option value="">------</option>
-									<option value="classic">Classic</option>
-									<option value="contemporary">Contemporary</option>
-									<option value="folk">Folk</option>
-									<option value="show">Show Dance</option>
+									<option value="1">Solo</option>
+									<option value="2">Duet</option>
+									<option value="3">Trio</option>
+									<option value="4">Group (4 - 7 people) </option>
+									<option value="5">Group (8 - 30 people or more)</option>
 								</select>
+								<div class="participants-fields"></div>
 							</div>
-							<div>
-								<label for="ageGroup" class="control-label">Age group:</label>
-								<select id="ageGroup" class="form-select text-center fw-bold mt-1">
-									<option value="">------</option>
-									<option value="group1">Group 1 (9–10)</option>
-									<option value="group2">Group 2 (11–13)</option>
-									<option value="group3">Group 3 (14–16)</option>
-									<option value="group4">Group 4 (17–23)</option>
-									<option value="group5">Group 5 (Mixed)</option>
-								</select>
-							</div>
-						</div>
 
-						<div class="row justify-content-around mt-3">
-							<div class="col-6">
-								<label for="time" class="control-label">Performance time:</label>
-								<input type="time" id="time" class="form-control text-center" />
-							</div>
-							<div class="col-6">
-								<label class="control-label">Start position:</label>
-								<div class="row justify-content-md-around justify-content-center">
-									<input type="radio" class="btn-check" name="startPoint" id="startWing" checked />
-									<label class="btn btn-outline-primary col-8 mb-1 col-md-4" for="startWing">Backstage</label>
-									<input type="radio" class="btn-check" name="startPoint" id="startSpot" />
-									<label class="btn btn-outline-primary col-8 mb-1 col-md-4" for="startSpot">Spot</label>
+							<div class="row row-cols-sm-2 mt-2">
+								<div>
+									<label class="control-label">Genre:</label>
+									<select class="form-select text-center fw-bold mt-1 js-genre-select">
+										<option value="">------</option>
+										<option value="classic">Classic</option>
+										<option value="contemporary">Contemporary</option>
+										<option value="folk">Folk</option>
+										<option value="show">Show Dance</option>
+									</select>
+								</div>
+								<div>
+									<label class="control-label">Age group:</label>
+									<select class="form-select text-center fw-bold mt-1 js-age-group-select">
+										<option value="">------</option>
+										<option value="group1">Group 1 (9–10)</option>
+										<option value="group2">Group 2 (11–13)</option>
+										<option value="group3">Group 3 (14–16)</option>
+										<option value="group4">Group 4 (17–23)</option>
+										<option value="group5">Group 5 (Mixed)</option>
+									</select>
 								</div>
 							</div>
-						</div>
 
-						<div class="form-group text-start mb-2 mt-3">
-							<label for="phonogram" class="control-label">Soundtrack file:</label>
-							<input type="file" id="phonogram" accept=".mp3, .wav" class="form-control" />
-						</div>
+							<div class="row justify-content-around mt-3">
+								<div class="col-6">
+									<label class="control-label">Performance time:</label>
+									<input type="time" class="form-control text-center js-performance-time" />
+								</div>
+								<div class="col-6">
+									<label class="control-label">Start position:</label>
+									<div class="row justify-content-md-around justify-content-center js-start-position-group">
+										<input type="radio" class="btn-check js-start-wing" name="startPoint_1" id="startWing_1" checked />
+										<label class="btn btn-outline-primary col-8 mb-1 col-md-4 js-start-wing-label"
+											for="startWing_1">Backstage</label>
+										<input type="radio" class="btn-check js-start-spot" name="startPoint_1" id="startSpot_1" />
+										<label class="btn btn-outline-primary col-8 mb-1 col-md-4 js-start-spot-label"
+											for="startSpot_1">Spot</label>
+									</div>
+								</div>
+							</div>
 
-						<div class="form-group text-start mb-2">
-							<label for="youtube" class="control-label">YouTube link:</label>
-							<input id="youtube" type="url" class="form-control" placeholder="https://youtube.com/..." />
+							<div class="form-group text-start mb-2 mt-3">
+								<label class="control-label">Soundtrack file:</label>
+								<input type="file" accept=".mp3,audio/mpeg" class="form-control js-soundtrack-file" />
+							</div>
+
+							<div class="form-group text-start mb-2">
+								<label class="control-label">YouTube link:</label>
+								<input type="url" class="form-control" placeholder="https://youtube.com/..." />
+							</div>
 						</div>
 					</div>
 
 					<div class="m-2 text-center">
-						<button type="button" class="btn btn-success me-2">
+						<button type="button" class="btn btn-success me-2" id="addPerformanceBtn">
 							<i class="bi bi-plus-square"></i> Add performance
 						</button>
 						<button type="submit" class="btn btn-primary">Send</button>
@@ -184,7 +195,7 @@
 	</main>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="js/registration.js"></script>
+	<script type="module" src="js/registration.js"></script>
 </body>
 
 </html>
